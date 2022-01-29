@@ -1,0 +1,42 @@
+#todo-list{
+    height: 100%;
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+
+    .bottom-section{
+        width: 100%;
+        position: absolute;
+        bottom: -25px;
+   
+    .add-new{
+        
+        height: 60px;
+        width: 60px;
+        border-radius: 30px;
+        border:0px;
+        background-color: #ffba74;
+        bottom: -30px;
+        color: white;
+        font-weight: bolder;
+        font-size: 35px;
+    }
+}
+
+#list{
+    height: 90%;
+    ul{
+        padding: 0%;
+        float: left;
+        li{
+            list-style: none;
+            padding: 5px 0px 5px 0px;
+
+            input[type="checkbox"]:checked:after{
+                background-image:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAQAAABuW59YAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAB2SURBVHjaAGkAlv8A3QDyAP0A/QD+Dam3W+kCAAD8APYAAgTVZaZCGwwA5wr0AvcA+Dh+7UX/x24AqK3Wg/8nt6w4/5q71wAAVP9g/7rTXf9n/+9N+AAAtpJa/zf/S//DhP8H/wAA4gzWj2P4lsf0JP0A/wADAHB0Ngka6UmKAAAAAElFTkSuQmCC'), linear-gradient(135deg, #B1B6BE 0%,#FFF 100%);
+            }
+        }
+    }
+}
+}

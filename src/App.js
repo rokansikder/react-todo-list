@@ -1,12 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
+import Layout from './Components/Layout';
+import Routes from './Components/Routes';
+import {BrowserRouter} from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      React todo app
-    </div>
-  );
+
+
+export default ()=> {  
+  return (<div id="todo-app">
+    <BrowserRouter>
+      <Layout>
+        <Routes />
+      </Layout>
+      </BrowserRouter> 
+      </div>
+    );
 }
-
-export default App;
