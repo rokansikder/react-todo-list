@@ -1,90 +1,89 @@
-#root{
-  font-family: Calibri, 'Trebuchet MS', sans-serif;
- position: relative;
- display: flex;
- justify-content: center;
- align-items: center;
- text-align: center;
- min-height: 100vh;  
- 
- background-image: linear-gradient(to bottom right, #fec0c1,#a176c9);
-
-  #todo-app{ 
+#root {
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
     position: relative;
-    background-color: white;
-    height: 500px;
-    width: 400px;
-    border-radius: 5px;
-    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
 
-    .container{
-      height: 100%; 
-      
-      >div{
-        height: 100%;
-        width: 100%;
-      }
+    background-image: linear-gradient(to bottom right, #fec0c1, #a176c9);
 
-     
-    }
+    #todo-app {
+        position: relative;
+        background-color: white;
+        height: 500px;
+        width: 400px;
+        border-radius: 5px;
+        box-sizing: border-box;
 
-    nav{
-      height: 60px;
-      margin: 0%;
-        padding: 0%;        
+        .container {
+            height: 100%;
 
-        &.border-bottom{
-          border:unset !important;
+            > div {
+                height: 100%;
+                width: 100%;
+            }
         }
 
-      div{
-        height: 100%;
-        margin: 0%;
-        padding: 0%;
-      }
+        nav {
+            height: 60px;
+            margin: 0%;
+            padding: 0%;
 
-      .nav-item{
-        background-color: #f1ecec;
-      }
-
-      ul{
-        width: 97%;
-        height: 100%;
-        margin: auto;
-        
-        li{
-          width: 50%;
-          a{
-            height: 100%;
-            svg{
-              font-size: 25pt;
-              color: #a58bbd;              
+            &.border-bottom {
+                border: unset !important;
             }
 
-          &.active {
-            background-color: white;    
-            svg{             
-              color: blueviolet;;
-            }        
-          }          
-        }
-        }
-      }   
+            div {
+                height: 100%;
+                margin: 0%;
+                padding: 0%;
+            }
 
-  }
-  }
+            .nav-item {
+                background-color: #f1ecec;
+            }
+
+            ul {
+                width: 97%;
+                height: 100%;
+                margin: auto;
+
+                li {
+                    width: 50%;
+                    a {
+                        height: 100%;
+                        svg {
+                            font-size: 25pt;
+                            color: #a58bbd;
+                            &:hover {
+                                color: blueviolet;
+                            }
+                        }
+
+                        &.active {
+                            background-color: white;
+                            svg {
+                                color: blueviolet;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 /* The modal by default bind to the body element so need a global css*/
-.todo-modal{
-  width: 70%;
-  bottom: -130px;
-  .add-new{
-    width: 100%;
-  }
+.todo-modal {
+    width: 70%;
+    bottom: -130px;
+    .add-new {
+        width: 100%;
+    }
 
-  .modal-footer{
-    padding: unset;
-  }
+    .modal-footer {
+        padding: unset;
+    }
 }
-

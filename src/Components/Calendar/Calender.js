@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default ()=> {
-    return (<div>Calender component</div>);
-}
+export default () => {
+    return <div>Calender component</div>;
+};

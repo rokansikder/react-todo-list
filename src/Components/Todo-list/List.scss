@@ -1,65 +1,118 @@
-#todo-list{    
-    
+:root {
+    --form-control-color: rebeccapurple;
+}
+
+#todo-list {
     display: flex;
     flex-direction: column;
 
-    .bottom-section{
+    .bottom-section {
         width: 100%;
         position: absolute;
         bottom: -25px;
-   
-    .add-new{
-        
-        height: 60px;
-        width: 60px;
-        border-radius: 30px;
-        border:0px;
-        background-color: #ffba74;
-        bottom: -30px;
-        color: white;
-        font-weight: bolder;
-        font-size: 35px;
-    }
-}
 
-#list{
-    height: calc(100% - 80px);
-    overflow: auto;
-    text-align: left;
-    ul{
-        padding: 0%;
-        float: left;
-        width: 100%;
-
-        li{
-            list-style: none;
-            padding: 5px 0px 5px 0px;            
-            display: flex;
-            justify-content: space-between;
-            height: 40px;            
-
-            input[type="checkbox"]{
-                margin-right: 5px;
-            }
+        .add-new {
+            height: 60px;
+            width: 60px;
+            border-radius: 30px;
+            border: 0px;
+            background-color: #ffba74;
+            bottom: -30px;
+            color: white;
+            font-weight: bolder;
+            font-size: 35px;
         }
+    }
 
-        .task-details{
-            .btn{
-                display: none;
-            }
-            &:hover{
-                .btn{
-                    display: inline-block;
+    #list {
+        height: calc(100% - 80px);
+        overflow: auto;
+        text-align: left;
+        ul {
+            padding: 0%;
+            float: left;
+            width: 100%;
+
+            li {
+                list-style: none;
+                padding: 5px 0px 5px 0px;
+                display: flex;
+                justify-content: space-between;
+                height: 40px;
+
+                input[type='checkbox'] {
+                    margin-right: 5px;
                 }
             }
 
-            .complete{
-                text-decoration: line-through;
-                color: #a39a9a;
+            .task-details {
+                label {
+                    display: inline-flex;
+                    align-items: center;
+                }
+                .btn {
+                    display: none;
+                }
+                &:hover {
+                    .btn {
+                        display: inline-block;
+                    }
+                }
+
+                .complete {
+                    text-decoration: line-through;
+                    color: #a39a9a;
+                }
+
+                input[type='checkbox'] {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    background-color: var(--form-background);
+                    margin: 0;
+                    font: inherit;
+                    color: #d5d1d1;
+                    width: 1.15em;
+                    height: 1.15em;
+                    border: 0.15em solid #d5d1d1;
+                    border-radius: 0.3em;
+                    transform: translateY(-0.075em);
+                    display: grid;
+                    place-content: center;
+                    margin-right: 5px;
+                    &::before {
+                        content: '';
+                        color: azure;
+                        width: 0.65em;
+                        height: 0.65em;
+                        clip-path: polygon(
+                            14% 44%,
+                            0 65%,
+                            50% 100%,
+                            100% 16%,
+                            80% 0%,
+                            43% 62%
+                        );
+                        transform: scale(0);
+                        transform-origin: bottom left;
+                        transition: 120ms transform ease-in-out;
+                        box-shadow: inset 1em 1em var(--form-control-color);
+                        background-color: CanvasText;
+                    }
+                    &:hover {
+                        border-color: #afa6a6;
+                    }
+                    &:checked {
+                        &::before {
+                            transform: scale(1);
+                        }
+                    }
+                    &:disabled {
+                        --form-control-color: var(--form-control-disabled);
+                        color: var(--form-control-disabled);
+                        cursor: not-allowed;
+                    }
+                }
             }
         }
-        
     }
-}
-
 }
