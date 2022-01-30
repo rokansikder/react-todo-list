@@ -5,10 +5,16 @@ import {bindActionCreators} from 'redux';
 import todoActions from '../../app/Store/actions';
 import TaskDetails from './TaskDetails';
 
-import {getAll, updateTask, deleteTask, saveTask} from '../../app/db/dbHelper';
+import {
+    getAll,
+    updateTask,
+    deleteTask,
+    saveTask,
+    removeLisnter,
+} from '../../app/db/dbHelper';
 import Todo from './ToDo';
 
-export default () => {
+const List = () => {
     const dispatch = useDispatch();
     const action = bindActionCreators(todoActions, dispatch);
     const state = useSelector((_state) => ({
@@ -19,6 +25,9 @@ export default () => {
 
     useEffect(() => {
         getAll(action.setTodoList);
+        return () => {
+            removeLisnter();
+        };
     }, []);
 
     const onStatusChange = (task) => {
@@ -83,3 +92,5 @@ export default () => {
         </div>
     );
 };
+
+export default List;

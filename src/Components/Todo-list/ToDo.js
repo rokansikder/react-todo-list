@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Modal, ModalBody, ModalFooter, Button, Alert} from 'reactstrap';
 import {useSelector} from 'react-redux';
 
-export default ({show, toggle, onSave}) => {
+const Todo = ({show, toggle, onSave}) => {
     const todoList = useSelector((_state) => _state.list);
     const [taskName, setTask] = useState('');
     const [isError, setIsError] = useState(false);
@@ -56,3 +56,5 @@ export default ({show, toggle, onSave}) => {
         </Modal>
     );
 };
+
+export default Todo;

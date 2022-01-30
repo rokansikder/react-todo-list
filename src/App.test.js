@@ -1,15 +1,15 @@
 import React from 'react';
-import {render} from '@testing-library/react';
+import {getByRole, render, screen} from '@testing-library/react';
 import {Provider} from 'react-redux';
 import {store} from './app/Store/store';
 import App from './App';
 
+it('CheckboxWithLabel changes the text after click', () => {});
 test('renders learn react link', () => {
-    const {findAllByText} = render(
+    render(
         <Provider store={store}>
             <App />
         </Provider>,
     );
-
-    expect(findAllByText(/a/i)).isInTheDocument();
+    expect(screen.findAllByRole(/link/i)).not.toBeNull();
 });

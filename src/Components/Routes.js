@@ -1,9 +1,9 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import {Route, Routes} from 'react-router';
 import List from './Todo-list/List';
 import Calender from './Calendar/Calender';
 
-export default () => {
+const ToDoRoutes = () => {
     return (
         <Routes>
             <Route path="/" element={<List />} />
@@ -12,3 +12,5 @@ export default () => {
         </Routes>
     );
 };
+
+export default ToDoRoutes;

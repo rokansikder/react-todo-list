@@ -1,23 +1,14 @@
-import React, {memo, useCallback} from 'react';
+import React from 'react';
 
-export default memo(({task, onChange, onDelete}) => {
-    console.log('task details');
-    const onTaskStatusChange = useCallback(
-        (e) => {
-            console.log(task);
-            task.isCompleted = !task.isCompleted;
-            if (onChange) onChange(task);
-        },
-        [task],
-    );
+const TaskDetails = ({task, onChange, onDelete}) => {
+    const onTaskStatusChange = (e) => {
+        task.isCompleted = !task.isCompleted;
+        if (onChange) onChange(task);
+    };
 
-    const onTaskDelete = useCallback(
-        (e) => {
-            console.log(task);
-            if (onDelete) onDelete(task);
-        },
-        [task],
-    );
+    const onTaskDelete = (e) => {
+        if (onDelete) onDelete(task);
+    };
 
     if (!task) return null;
     return (
@@ -37,4 +28,6 @@ export default memo(({task, onChange, onDelete}) => {
             </li>
         </>
     );
-});
+};
+
+export default TaskDetails;

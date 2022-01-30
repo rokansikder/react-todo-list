@@ -11,9 +11,12 @@ export const getAll = (callback) => {
             childData.uid = childKey;
             todoList.push(childData);
         });
-        console.log(todoList);
         if (callback && todoList) callback(todoList);
     });
+};
+
+export const removeLisnter = () => {
+    console.log('Remove the listner');
 };
 
 export const saveTask = (task, callback) => {

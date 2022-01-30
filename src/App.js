@@ -3,7 +3,7 @@ import Layout from './Components/Layout';
 import Routes from './Components/Routes';
 import {BrowserRouter} from 'react-router-dom';
 
-export default () => {
+const App = () => {
     return (
         <div id="todo-app">
             <BrowserRouter>
@@ -14,3 +14,5 @@ export default () => {
         </div>
     );
 };
+
+export default App;
