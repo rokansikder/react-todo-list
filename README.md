@@ -19,13 +19,13 @@ cd react-todo-list  <br/>
 ### Firebae RealTime DataBase Configuration 
 Keep the configurations for the Firebase RealTime Database in the .env file as follows
 
-REACT_APP_API_KEY=<API KEY> <br />
-REACT_APP_AUTH_DOMAIN=<AUTH DOMAIN> <br />
-REACT_APP_PROJECT_ID=<PROJECT ID> <br />
-REACT_APP_STORAGE_BUCKET=<STORAGE BUCKET> <br />
-REACT_APP_MESSAGING_SENDER_ID=<MESSAGING SENDER ID> <br />
-REACT_APP_APP_ID=<APP ID> <br />
-REACT_APP_MEASUREMENT_ID=<MEASUREMENT ID> <br />
+REACT_APP_API_KEY= `<API KEY>` <br />
+REACT_APP_AUTH_DOMAIN= `<AUTH DOMAIN>` <br />
+REACT_APP_PROJECT_ID= `<PROJECT ID>` <br />
+REACT_APP_STORAGE_BUCKET=`<STORAGE BUCKET>` <br />
+REACT_APP_MESSAGING_SENDER_ID=`<MESSAGING SENDER ID>` <br />
+REACT_APP_APP_ID=`<APP ID>` <br />
+REACT_APP_MEASUREMENT_ID=`<MEASUREMENT ID>` <br />
 
 
 ### `npm start`  <br/>
