@@ -1,6 +1,8 @@
 import {todoDb} from './firebase-db';
 import {ref, onValue, push, update, remove} from '@firebase/database';
 
+// getAll function listens to firebase db and if there is any data then call the callback function
+// with the data
 export const getAll = (callback) => {
     const starCountRef = ref(todoDb, 'todo-list/');
     onValue(starCountRef, (snapshot) => {
