@@ -1,20 +1,5 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color:blueviolet;
-  position: relative;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 #root{
+  font-family: Calibri, 'Trebuchet MS', sans-serif;
  position: relative;
  display: flex;
  justify-content: center;
@@ -33,22 +18,39 @@ code {
     box-sizing: border-box;
 
     .container{
-      height: 100%;     
+      height: 100%; 
+      
+      >div{
+        height: 100%;
+        width: 100%;
+      }
+
+     
     }
 
     nav{
       height: 60px;
       margin: 0%;
-        padding: 0%;
+        padding: 0%;        
+
+        &.border-bottom{
+          border:unset !important;
+        }
 
       div{
         height: 100%;
         margin: 0%;
         padding: 0%;
       }
+
+      .nav-item{
+        background-color: #f1ecec;
+      }
+
       ul{
-        width: 100%;
+        width: 97%;
         height: 100%;
+        margin: auto;
         
         li{
           width: 50%;
@@ -56,15 +58,15 @@ code {
             height: 100%;
             svg{
               font-size: 25pt;
+              color: #a58bbd;              
             }
 
           &.active {
-            background-color: #baffc4;
-
-            &:hover {
-                background-color: #baffc4;
-            }
-          }
+            background-color: white;    
+            svg{             
+              color: blueviolet;;
+            }        
+          }          
         }
         }
       }   
@@ -72,3 +74,17 @@ code {
   }
   }
 }
+
+/* The modal by default bind to the body element so need a global css*/
+.todo-modal{
+  width: 70%;
+  bottom: -130px;
+  .add-new{
+    width: 100%;
+  }
+
+  .modal-footer{
+    padding: unset;
+  }
+}
+

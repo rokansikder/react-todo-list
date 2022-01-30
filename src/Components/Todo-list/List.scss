@@ -1,6 +1,4 @@
-#todo-list{
-    height: 100%;
-    width: 100%;
+#todo-list{    
     
     display: flex;
     flex-direction: column;
@@ -25,18 +23,43 @@
 }
 
 #list{
-    height: 90%;
+    height: calc(100% - 80px);
+    overflow: auto;
+    text-align: left;
     ul{
         padding: 0%;
         float: left;
+        width: 100%;
+
         li{
             list-style: none;
-            padding: 5px 0px 5px 0px;
+            padding: 5px 0px 5px 0px;            
+            display: flex;
+            justify-content: space-between;
+            height: 40px;            
 
-            input[type="checkbox"]:checked:after{
-                background-image:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAQAAABuW59YAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAB2SURBVHjaAGkAlv8A3QDyAP0A/QD+Dam3W+kCAAD8APYAAgTVZaZCGwwA5wr0AvcA+Dh+7UX/x24AqK3Wg/8nt6w4/5q71wAAVP9g/7rTXf9n/+9N+AAAtpJa/zf/S//DhP8H/wAA4gzWj2P4lsf0JP0A/wADAHB0Ngka6UmKAAAAAElFTkSuQmCC'), linear-gradient(135deg, #B1B6BE 0%,#FFF 100%);
+            input[type="checkbox"]{
+                margin-right: 5px;
             }
         }
+
+        .task-details{
+            .btn{
+                display: none;
+            }
+            &:hover{
+                .btn{
+                    display: inline-block;
+                }
+            }
+
+            .complete{
+                text-decoration: line-through;
+                color: #a39a9a;
+            }
+        }
+        
     }
 }
+
 }

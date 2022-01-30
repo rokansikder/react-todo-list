@@ -1,57 +1,62 @@
 import './List.scss';
-import React, { useState, useLayoutEffect } from 'react';
-import TaskDetails from '../Task-details/TaskDetails';
-import {Modal, ModalBody, ModalFooter, Button} from 'reactstrap';
+import React, { useState, useEffect } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import todoActions from '../../app/Store/actions';
+import TaskDetails from './TaskDetails';
+
+import {getAll, updateTask, deleteTask, saveTask} from '../../app/db/dbHelper';
+import Todo from './ToDo';
 
 
-const initialTodoList=[{name:'Project 1', isCompleted: false},
-{name:'Project 2', isCompleted: false},
-{name:'Project 3', isCompleted: true},
-{name:'Project 4', isCompleted: false}  ];
+
 export default ()=>{ 
-    const[todoList, setTodoList] = useState(initialTodoList);
+    const dispatch = useDispatch();
+    const action = bindActionCreators(todoActions, dispatch);
+    const state = useSelector(_state=> ({        
+        todoList: _state.list
+    }));
+    
     const [showAddNew, setAddNewFlag] = useState(false);
 
+    useEffect(()=>{
+        getAll(action.setTodoList); 
+    }, []);
   
-    const onStatusChange = task=>{
-        let _todoList = todoList.slice(0);
-        let _task = _todoList.find(t=> t.name === task.name);
-        _task.isCompleted = !task.isCompleted;
-        setTodoList(_todoList)
+    const onStatusChange = task=>{     
+        updateTask(task);           
     }
 
     const toggleAddNew = e=>{
         setAddNewFlag(!showAddNew);
+        
     }
 
-    const addNewTask = e=>{
-        setAddNewFlag(!showAddNew);
+    const addNewTask = task=>{
+        saveTask(task);
+        setAddNewFlag(!showAddNew);        
     }
+
+    const onDeleteTask = task=>{
+        if(window.confirm(`Are you sure want to delete ${task.taskName}?`))
+            deleteTask(task);
+    }
+    
+    if(!state.todoList || state.todoList.length < 1) return <div> No List </div>;
 
     return (
     <div id='todo-list'>
     <div id="list">
         <ul>
-            {todoList.map((task, i) => <TaskDetails key={i} task={task} onChange={onStatusChange} />)}
+            {state.todoList.filter(t=> !t.isCompleted).map((task, i) => <TaskDetails key={i} task={task} onChange={onStatusChange} onDelete={onDeleteTask} />)}
+            {state.todoList.filter(t=> t.isCompleted).map((task, i) => <TaskDetails key={i} task={task} onChange={onStatusChange} onDelete={onDeleteTask}/>)}
         </ul>
         
-        {showAddNew && <AddNewTask show={showAddNew} toggle={toggleAddNew} onSave={addNewTask} />}
+        {showAddNew && <Todo show={showAddNew} toggle={toggleAddNew} onSave={addNewTask} />}
     </ div>
     <div className='bottom-section'><button className='add-new' onClick={toggleAddNew}>+</button></div>
     </div>
     );
 }
 
-const AddNewTask = ({show, toggle, onSave})=>{
-    return (
-        <Modal funk={true} isOpen={show} toggle={toggle}>          
-          <ModalBody>
-            <input type={"text"} name='task' />
-          </ModalBody>
-          <ModalFooter>
-            <Button color="primary" onClick={toggle}>Add</Button>{' '}
-            <Button color="secondary" onClick={toggle}>Cancel</Button>
-          </ModalFooter>
-        </Modal>
-    );
-}
+

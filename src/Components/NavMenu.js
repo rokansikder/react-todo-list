@@ -7,15 +7,15 @@ export default ()=>{
 
     return (
         <>
-        <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" tabs>
+        <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3">
             <Container>
                 <Collapse navbar >
                 <Nav className="ml-auto" navbar>
                         <NavItem>                            
-                            <NavLink to="/" activeclassname="active" tag={RRNavLink}><Icons.ListUl /></NavLink>
+                            <NavLink to="/"  tag={RRNavLink} ><Icons.ListUl /></NavLink>
                         </NavItem>
                         <NavItem>                            
-                            <NavLink to="/calendar" activeclassname="active" tag={RRNavLink}><Icons.Calendar2Check /></NavLink>
+                            <NavLink to="/calendar"  tag={RRNavLink}><Icons.Calendar2Check /></NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>
