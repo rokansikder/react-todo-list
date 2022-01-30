@@ -16,6 +16,18 @@ Firebase ReatTime Database  <br/>
 git clone git@github.com:rokansikder/react-todo-list.git  <br/>
 cd react-todo-list  <br/>
 
+### Firebae RealTime DataBase Configuration
+Keep the configurations for the Firebase RealTime Database in the .env file as follows
+
+REACT_APP_API_KEY=<API KEY>
+REACT_APP_AUTH_DOMAIN=<AUTH DOMAIN>
+REACT_APP_PROJECT_ID=<PROJECT ID>
+REACT_APP_STORAGE_BUCKET=<STORAGE BUCKET>
+REACT_APP_MESSAGING_SENDER_ID=<MESSAGING SENDER ID>
+REACT_APP_APP_ID=<APP ID>
+REACT_APP_MEASUREMENT_ID=<MEASUREMENT ID>
+
+
 ### `npm start`  <br/>
 Runs the app in the development mode.  <br/>
 Open http://localhost:3000 to view it in the browser.  <br/>
