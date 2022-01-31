@@ -28,7 +28,7 @@ REACT_APP_APP_ID=`<APP ID>` <br />
 REACT_APP_MEASUREMENT_ID=`<MEASUREMENT ID>` <br />
 
 
-### Start Project  <br/>
+## Start Project  <br/>
 git clone git@github.com:rokansikder/react-todo-list.git  <br/>
 cd react-todo-list  <br/>
 
