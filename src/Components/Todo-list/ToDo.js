@@ -38,6 +38,7 @@ const Todo = ({show, toggle, onSave}) => {
             <ModalBody>
                 Task Name
                 <input
+                    autoFocus={true}
                     type={'text'}
                     className="add-new"
                     name="task"

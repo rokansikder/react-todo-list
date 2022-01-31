@@ -50,11 +50,16 @@
                     display: inline-flex;
                     align-items: center;
                 }
-                .btn {
+                button {
                     display: none;
+                    color: red;
+                    background-color: unset;
+                    margin-right: 3px;
+                    border: 0px;
+                    font-size: 15pt;
                 }
                 &:hover {
-                    .btn {
+                    button {
                         display: inline-block;
                     }
                 }

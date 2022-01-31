@@ -22,9 +22,7 @@ const TaskDetails = ({task, onChange, onDelete}) => {
 
                     {task.taskName}
                 </label>
-                <button className="btn" onClick={onTaskDelete}>
-                    X
-                </button>
+                <button onClick={onTaskDelete}>X</button>
             </li>
         </>
     );

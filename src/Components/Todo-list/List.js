@@ -48,33 +48,36 @@ const List = () => {
             deleteTask(task);
     };
 
-    if (!state.todoList || state.todoList.length < 1)
-        return <div> No List </div>;
+    const noTaskMessage = 'No Task';
+    if (!state.todoList) return <div>{noTaskMessage} </div>;
 
     return (
         <div id="todo-list">
             <div id="list">
                 <ul>
-                    {state.todoList
-                        .filter((t) => !t.isCompleted)
-                        .map((task, i) => (
-                            <TaskDetails
-                                key={i}
-                                task={task}
-                                onChange={onStatusChange}
-                                onDelete={onDeleteTask}
-                            />
-                        ))}
-                    {state.todoList
-                        .filter((t) => t.isCompleted)
-                        .map((task, i) => (
-                            <TaskDetails
-                                key={i}
-                                task={task}
-                                onChange={onStatusChange}
-                                onDelete={onDeleteTask}
-                            />
-                        ))}
+                    {state.todoList.length < 1 && <li>{noTaskMessage}</li>}
+                    {state.todoList &&
+                        state.todoList
+                            .filter((t) => !t.isCompleted)
+                            .map((task, i) => (
+                                <TaskDetails
+                                    key={i}
+                                    task={task}
+                                    onChange={onStatusChange}
+                                    onDelete={onDeleteTask}
+                                />
+                            ))}
+                    {state.todoList &&
+                        state.todoList
+                            .filter((t) => t.isCompleted)
+                            .map((task, i) => (
+                                <TaskDetails
+                                    key={i}
+                                    task={task}
+                                    onChange={onStatusChange}
+                                    onDelete={onDeleteTask}
+                                />
+                            ))}
                 </ul>
                 {showAddNew && (
                     <Todo

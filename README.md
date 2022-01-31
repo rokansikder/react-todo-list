@@ -1,20 +1,20 @@
 # ToDo List <br/>
 ### ToDo list is a simple web application to save your daily tasks in order not to miss anything.  <br/>
 
-### Features <br/>
+## Features <br/>
 Add new task in list  <br/>
 Remove or Delete single list  <br/>
 Mark task as completed / uncompleted  <br/>
 Delete task  <br/>
 
-### Technologies  <br/>
+## Screenshot
+
+![Screenshot of Todo List](public/Screenshot.png)
+
+## Technologies  <br/>
 React JS (Hooks)  <br/>
 Redux  <br/>
 Firebase ReatTime Database  <br/>
-
-### Start Project  <br/>
-git clone git@github.com:rokansikder/react-todo-list.git  <br/>
-cd react-todo-list  <br/>
 
 ### Firebae RealTime DataBase Configuration 
 Keep the configurations for the Firebase RealTime Database in the .env file as follows
@@ -27,6 +27,10 @@ REACT_APP_MESSAGING_SENDER_ID=`<MESSAGING SENDER ID>` <br />
 REACT_APP_APP_ID=`<APP ID>` <br />
 REACT_APP_MEASUREMENT_ID=`<MEASUREMENT ID>` <br />
 
+
+### Start Project  <br/>
+git clone git@github.com:rokansikder/react-todo-list.git  <br/>
+cd react-todo-list  <br/>
 
 ### `npm start`  <br/>
 Runs the app in the development mode.  <br/>
