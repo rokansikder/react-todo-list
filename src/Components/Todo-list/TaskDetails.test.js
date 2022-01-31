@@ -1,5 +1,5 @@
 import React from 'react';
-import {getByRole, render, screen} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import TaskDetails from './TaskDetails';
 
 const todoTask = {id: 2, taskName: 'Project 2', isCompleted: false};

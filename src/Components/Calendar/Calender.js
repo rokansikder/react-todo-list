@@ -1,5 +1,7 @@
 import React from 'react';
 
-export default () => {
+const Calendar = () => {
     return <div>Calender component</div>;
 };
+
+export default Calendar;

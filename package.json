@@ -30,11 +30,11 @@
     
   },
   "scripts": {
-    "start": "npm run lint && npm run prettier-fix && react-scripts start",
+    "start": "npm run eslint && npm run prettier-fix && react-scripts start",
     "build": "npx run prettier-fix &&  react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "npx eslint src" ,
+    "eslint": "npx eslint src  --fix" ,
     "prettier-fix":"prettier --write ./src"   
   },
   "eslintConfig": {
