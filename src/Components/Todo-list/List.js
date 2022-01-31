@@ -1,5 +1,4 @@
-import './List.scss';
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import todoActions from '../../app/Store/actions';
@@ -9,10 +8,8 @@ import {
     getAll,
     updateTask,
     deleteTask,
-    saveTask,
     removeLisnter,
 } from '../../app/db/dbHelper';
-import Todo from './ToDo';
 
 const List = () => {
     const dispatch = useDispatch();
@@ -20,8 +17,6 @@ const List = () => {
     const state = useSelector((_state) => ({
         todoList: _state.list,
     }));
-
-    const [showAddNew, setAddNewFlag] = useState(false);
 
     useEffect(() => {
         getAll(action.setTodoList);
@@ -34,64 +29,39 @@ const List = () => {
         updateTask(task);
     };
 
-    const toggleAddNew = (e) => {
-        setAddNewFlag(!showAddNew);
-    };
-
-    const addNewTask = (task) => {
-        saveTask(task);
-        setAddNewFlag(!showAddNew);
-    };
-
     const onDeleteTask = (task) => {
         if (window.confirm(`Are you sure want to delete ${task.taskName}?`))
             deleteTask(task);
     };
 
-    const noTaskMessage = 'No Task';
-    if (!state.todoList) return <div>{noTaskMessage} </div>;
+    if (!state.todoList || state.todoList.length < 1) return <div>No Task</div>;
 
     return (
-        <div id="todo-list">
-            <div id="list">
-                <ul>
-                    {state.todoList.length < 1 && <li>{noTaskMessage}</li>}
-                    {state.todoList &&
-                        state.todoList
-                            .filter((t) => !t.isCompleted)
-                            .map((task, i) => (
-                                <TaskDetails
-                                    key={i}
-                                    task={task}
-                                    onChange={onStatusChange}
-                                    onDelete={onDeleteTask}
-                                />
-                            ))}
-                    {state.todoList &&
-                        state.todoList
-                            .filter((t) => t.isCompleted)
-                            .map((task, i) => (
-                                <TaskDetails
-                                    key={i}
-                                    task={task}
-                                    onChange={onStatusChange}
-                                    onDelete={onDeleteTask}
-                                />
-                            ))}
-                </ul>
-                {showAddNew && (
-                    <Todo
-                        show={showAddNew}
-                        toggle={toggleAddNew}
-                        onSave={addNewTask}
-                    />
-                )}
-            </div>
-            <div className="bottom-section">
-                <button className="add-new" onClick={toggleAddNew}>
-                    +
-                </button>
-            </div>
+        <div id="list">
+            <ul>
+                {state.todoList &&
+                    state.todoList
+                        .filter((t) => !t.isCompleted)
+                        .map((task, i) => (
+                            <TaskDetails
+                                key={i}
+                                task={task}
+                                onChange={onStatusChange}
+                                onDelete={onDeleteTask}
+                            />
+                        ))}
+                {state.todoList &&
+                    state.todoList
+                        .filter((t) => t.isCompleted)
+                        .map((task, i) => (
+                            <TaskDetails
+                                key={i}
+                                task={task}
+                                onChange={onStatusChange}
+                                onDelete={onDeleteTask}
+                            />
+                        ))}
+            </ul>
         </div>
     );
 };
