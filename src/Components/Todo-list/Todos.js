@@ -18,7 +18,7 @@ const Todos = () => {
 
     return (
         <div id="todo-list">
-            <List />
+            <List id="10" />
             <Todo show={showAddNew} toggle={toggleAddNew} onSave={addNewTask} />
             <div className="bottom-section">
                 <button className="add-new" onClick={toggleAddNew}>

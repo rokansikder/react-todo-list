@@ -10,5 +10,5 @@ test('renders task list', () => {
             <List />
         </Provider>,
     );
-    expect(getByText(/No List/i)).toBeInTheDocument();
+    expect(getByText(/No Task/i)).toBeInTheDocument();
 });

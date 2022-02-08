@@ -2,6 +2,7 @@ import React from 'react';
 
 const TaskDetails = ({task, onChange, onDelete}) => {
     const onTaskStatusChange = (e) => {
+        console.log(e);
         task.isCompleted = !task.isCompleted;
         if (onChange) onChange(task);
     };
@@ -11,6 +12,7 @@ const TaskDetails = ({task, onChange, onDelete}) => {
     };
 
     if (!task) return null;
+
     return (
         <>
             <li className="task-details">
